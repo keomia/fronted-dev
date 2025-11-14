@@ -1,3 +1,4 @@
+//test
 //一、var let const 的区别
     // //1.作用域区别
     // if (true) {
@@ -390,7 +391,7 @@
     //ES6 引入了原生的模块化支持，使用 import 导入模块，使用 export 导出模块。
     //math.js   
     //export function add(a, b) {
-    //  return a + b;
+    //  return a + b;··
     //}
     //main.js
     //import { add } from './math.js';
