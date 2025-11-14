@@ -250,9 +250,8 @@
     //总结
     //事件循环机制使得 JavaScript 能够高效地处理异步操作，确保主线程不会被阻塞。理解事件循环对于编写高性能的 JavaScript 代码和调试异步问题非常重要。    
 
-    //七、原型链
+//七、原型链
     //原型链是 JavaScript 中实现继承和属性查找的一种机制。每个对象都有一个内部属性 [[Prototype]]，指向它的原型对象。当访问一个对象的属性时，如果该属性不存在于对象本身，JavaScript 引擎会沿着原型链向上查找，直到找到该属性或到达原型链的顶端（即 null）。
-
     //创建原型链
     //1.使用构造函数创建对象
     //function Person(name) {
@@ -332,10 +331,28 @@
     //const deepCopy = JSON.parse(JSON.stringify(original));
     //deepCopy.b.c = 3;
     //console.log(original.b.c); // 输出 2，说明原始对象没有受到影响
-    
+    //??怎么递归实现深拷贝
+    // function deepClone(obj, hash = new WeakMap()) {
+    //   if (obj === null) return null; // null 的情况
+    //   if (typeof obj !== 'object') return obj; // 基本类型直接返回
+
+    //   if (hash.has(obj)) return hash.get(obj); // 处理循环引用
+
+    //   const cloneObj = Array.isArray(obj) ? [] : {};
+    //   hash.set(obj, cloneObj); // 存储引用
+
+    //   for (const key in obj) {
+    //     if (obj.hasOwnProperty(key)) {
+    //       cloneObj[key] = deepClone(obj[key], hash); // 递归拷贝
+    //     }
+    //   }
+
+    //   return cloneObj;
+    // }   
     //总结
     //浅拷贝适用于简单对象，但对于嵌套对象可能会导致意外的副作用。深拷贝适用于需要完全独立副本的复杂对象，但性能开销较大。选择使用浅拷贝还是深拷贝，取决于具体的应用场景和需求。    
-//十、内存管理与垃圾回收
+
+    //十、内存管理与垃圾回收
     //JavaScript 使用自动内存管理和垃圾回收机制来处理内存分配和释放。开发者不需要手动管理内存，但理解内存管理的基本原理有助于编写高效的代码。   
     //1.内存分配
     //当创建变量、对象或数组时，JavaScript 引擎会在内存中分配空间来存储这些数据。基本数据类型（如数字、字符串、布尔值）通常存储在栈内存中，而引用数据类型（如对象、数组、函数）则存储在堆内存中。
